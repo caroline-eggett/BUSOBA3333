@@ -4,14 +4,14 @@ This course is for prescriptive analytics.  Each assignment in this repository w
 
 *The programming language for the course is R.*
 
-###Assignment 1
+### Assignment 1
 
 You will see some of the basics of the R command language. 
 - basic calculations
 - visualization
 - summary of actual date
 
-###Assignment 2
+### Assignment 2
 
 You will see some foundational market segmentation analysis.
 - Applying factor analysis
