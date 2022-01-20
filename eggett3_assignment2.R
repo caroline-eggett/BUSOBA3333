@@ -89,10 +89,13 @@ AdjFloading = cbind(F1, F2, F3, F4)
 # 3b. Create a matrix score that weighted each motivation by factor loading with cut 
 # point in question a.
 score = as.matrix(motivations) %*% AdjFloading
+dim(score)
 
 # 3c. Create a variable stdscore that standardize the score.
-stdscore = matrix(apply(score, 2, mean), ncol=nclust,)
-sdd =
+stdscore2 = scale(score, scale = TRUE)
+# smean = matrix(apply(score, 2, mean), ncol = nclust, nrow = nhh, byrow = TRUE)
+# ssd = matrix(apply(score, 2, sd), ncol = nclust, nrow = nhh, byrow = TRUE)
+# stdscore = (score - smean)/ssd
 
 
 # 4a. Create a variable cluster that clustering the respondents using the score and nclust 
@@ -105,8 +108,10 @@ cluster = kmeans(stdscore, centers = nclust)
 print(cluster)
 
 # 4c. Interpret the cluster results and name each cluster. 
-# Utilize the factors you named and then what they said for each by seeing a
-# matrix of the structures
+# It looks like Cluster #1 is Factor #2 (Bad_GM).  It looks like Cluster #2 is
+# Factor #4 (Need Assistance).  It looks like Cluster #3 is a bit of Factor #2
+# and Factor #3 (Bad_GM, Hauler, respectively).  It looks like Cluster #4 is
+# Factor #1 (Driving Experience).
 
 # 5a. Create a variable group using results in cluster to assigned each respondent to a 
 # segment.not sure how to do
@@ -119,4 +124,4 @@ for(i in 1:nhh){
 }
 
 # 5c. Save clust to a .csv file with name Cluster.csv.
-write.csv(clust, sep=",")
+write.csv(clust,file = "Cluster.csv" )
