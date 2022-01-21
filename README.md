@@ -1,6 +1,6 @@
 # BUSOBA3333
 
-This course is for prescriptive analytics.  Each assignment in this repository will build upon another to ultimately allow the marketer to understand how Ford, the company partner, create new product models for customers.
+This course is for prescriptive analytics.  Each assignment in this repository will build upon another to ultimately allow the marketer to understand how Ford, the company partner, can create new product models for customers.
 
 *The programming language for the course is R.*
 
@@ -44,7 +44,7 @@ You will see the mapping of consumer preference to purchase motivation for commu
 ### Assignment 6
 **Economic Value of Analysis**
 
-YOu will see monetized utility for a product in a target market.
+You will see monetized utility for a product in a target market.
 - Create a market simulator to estimate pWTP, WTP, WTB using conjoint analysis
 - Identify the target segment for SUV brand
 - Design a bundle according to target segment preference and economic values
