@@ -33,6 +33,18 @@ Package Features:
 - Luxury items
 - Hybrid addition
 - Safety features
+- Miles/gallon
+
+#### Toyota
+- Power upgrade
+- Weather upgrade
+- Audio upgrade
+
+#### Chevy Equinox
+- Standard
+- LT (tech improvements, better interior design)
+- RS (convenience and driver's safety)
+- Premium (more pounds for towing, bigger wheels)
 
 ### How does your assigned brand let the segments know about your assigned SUV model?
 
