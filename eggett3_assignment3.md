@@ -29,7 +29,10 @@ Model Versions:
 - Escape Titanium Plug-In Hybrid: $38,885
 
 Package Features:
-- NEED HELP!
+- Technology upgrades
+- Luxury items
+- Hybrid addition
+- Safety features
 
 ### How does your assigned brand let the segments know about your assigned SUV model?
 
