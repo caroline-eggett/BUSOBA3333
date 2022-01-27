@@ -35,11 +35,11 @@ Package Features:
 - Safety features
 - Miles/gallon
 - Towing package
-- Titanium Premium package (additional panoramic roof)
+- Titanium Premium package (additional panoramic roof, wireless charging for phone, trimmed seating, leather wheel, heads-up display)
 
 #### Toyota
 - Power upgrade
-- Weather upgrade
+- Weather upgrade (off road weather)
 - Audio upgrade
 
 #### Chevy Equinox
