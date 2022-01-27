@@ -1,4 +1,4 @@
-# Homework No. 3 - caroline
+# Homework No. 3 - Caroline
 
 ## Brand is Ford Escape
 
@@ -12,7 +12,13 @@
 
 ### To whom is your assigned brand offered the promoted product and package features of an SUV?
 - *Slogan:* Shaking Up the Segment with Versatility and Capability
-- My assigned brand tens to offer driver-assist technologies to people who "Need Assistance."  Furthermore, my brand offers towing capabilities for people who are "Haulers."  Lastly, my brand offers a variety of driving mode features for those people that like "Driving Experience."
+- My assigned brand tens to offer driver-assist technologies to people who "Need Assistance."  Furthermore, my brand offers towing capabilities for people who are "Haulers."  Lastly, my brand offers a variety of driving mode features for those people that like "Driving Experience."  Furthermore, Ford is trying to get the best gas mileage by going hybrid.
+
+#### Honda
+- Trying to be the best driving experience
+
+#### Nissan
+- Go rogue, keeping on track
 
 ### What price is your assigned brand charge?
 
@@ -43,10 +49,16 @@ Package Features:
 - Audio upgrade
 
 #### Chevy Equinox
+- Driving Experience and Need Assistance
+
+#### Chevy Equinox
 - Standard
 - LT (tech improvements, better interior design)
 - RS (convenience and driver's safety)
 - Premium (more pounds for towing, bigger wheels)
+
+#### Nissan
+- Packages so ~$10,000 differences
 
 ### How does your assigned brand let the segments know about your assigned SUV model?
 
