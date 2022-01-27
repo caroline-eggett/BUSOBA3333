@@ -34,6 +34,8 @@ Package Features:
 - Hybrid addition
 - Safety features
 - Miles/gallon
+- Towing package
+- Titanium Premium package (additional panoramic roof)
 
 #### Toyota
 - Power upgrade
