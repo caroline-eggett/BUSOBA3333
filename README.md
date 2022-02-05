@@ -32,7 +32,8 @@ You will see target market research for the car industry so that the marketer kn
 **Conjoint Analysis**
 
 You will see how to create a conjoint survey.
-- Utilizing Sawtooth's "Discover" software to field a conjoint study
+- Utilizing Sawtooth's "Discover" software to field a conjoint study\
+- Click on the link [here](https://discover.sawtoothsoftware.com/AccessCode/CopySurvey/59064adf864c4341816aff03da11c223) to access
 
 ### Assignment 5
 **Heterogeneity**
