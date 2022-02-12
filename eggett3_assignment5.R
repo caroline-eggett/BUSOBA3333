@@ -93,7 +93,7 @@ write.csv(cmean, 'cluster mean.csv')
 # (i.e. part-worth > 1.00)
 
 # Driving Experience: Rear obstacle warning is an important feature.  This could
-# be due to this segment valuing technology driving consistance and the use of technology
+# be due to this segment valuing technology driving consistence and the use of technology
 # to keep a driver safe.
 
 # Bad_GM: Rear cross traffic collision warning, rear obstacle warning, surround 
@@ -112,7 +112,9 @@ write.csv(cmean, 'cluster mean.csv')
 #4c. Which product features are less preferred by each segment?
 # (i.e., negative part-worths)
 
-# Driving Experience: Drive train is the least preferred feature.
+# Driving Experience: Drive train is the least preferred feature.  This is probably
+# due to these drivers favoring the additional safety technology featuers
+# rather than the type of motors, transmissions, etc. used.
 
 # Bad_GM: Drive train, carpeted floor mats, forward collision warning, 
 # adaptive cruise control, and lane keep assist are the least preferred product features.
@@ -124,7 +126,11 @@ write.csv(cmean, 'cluster mean.csv')
 # motivation to go off-road and haul large items.  They don't need a nice interior,
 # nor do they need technology features that hinder and off-road experience.
 
-# Need Assistance: Drive train is the least preferred product feature.
+# Need Assistance: Drive train is the least preferred product feature.  Like
+# driving experience, this is due to these drivers favoring the ability to have
+# driving assistance and the ability to control their vehicle rather than
+# the type of motors, transmission, etc. needed for the car to function
+# behind the scenes.
 
 #4d. Are respondents in this segment sensitive to the price change?
 
