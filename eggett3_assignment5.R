@@ -84,18 +84,50 @@ write.csv(cmean, 'cluster mean.csv')
 
 #4a. Which brand is the most preferred brand by each segment?
 
+# Driving Experience: Toyota
+# Bad_GM: Toyota
+# Hauler: Honda
+# Need Assistance: Honda
+
 #4b. Which product features are relatively important for each segment?
 # (i.e. part-worth > 1.00)
+
+# Driving Experience: Rear obstacle warning is an important feature.  This could
+# be due to this segment valuing technology driving consistance and the use of technology
+# to keep a driver safe.
+
+# Bad_GM: Rear cross traffic collision warning, rear obstacle warning, surround 
+# view monitor, reverse collision avoidance, and automatic parking are important
+# features.  This is due to other frustrations individuals in Bad_GM have (these
+# are not listed in the analysis).
+
+# Hauler: Rear cross traffic collision warning, rear obstacle warning, and reverse 
+# collision avoidance are important features.  This is due to the segment enjoying
+# getting off the road--they want to make sure what they do is safe off-road.
+
+# Need Assistance: Premium stereo and forward collision avoidance are important 
+# features. This segment is motivated by the ability to hear others in the car and
+# have a safe car due to how cautious they are.
 
 #4c. Which product features are less preferred by each segment?
 # (i.e., negative part-worths)
 
+# Driving Experience: Drive train is the least preferred feature.
+
+# Bad_GM: Drive train, carpeted floor mats, forward collision warning, 
+# adaptive cruise control, and lane keep assist are the least preferred product features.
+# This is probably motivated by their desire for good gas mileage--they don't necessarily
+# have interest in other perks of the car.
+
+# Hauler: Drive train, carpeted floor mats, forward warning collision, and adaptive 
+# cruise control are the least preferred product features.  This is due to their
+# motivation to go off-road and haul large items.  They don't need a nice interior,
+# nor do they need technology features that hinder and off-road experience.
+
+# Need Assistance: Drive train is the least preferred product feature.
+
 #4d. Are respondents in this segment sensitive to the price change?
 
-#5a. Compare your analysis results from question 4. with the analysis results from 
-# Assignment #2 (Factor loadings of each factor and purchase motivation of each 
-# cluster)  
+# For all the segments, there was relatively little important (negative values) for the price.
 
-#5b. For each cluster, use the important purchase motivations to illustrate the reason 
-# behind the importance of each product features and the less preferred product 
-# features. State your answer in the right most column of the tables. 
+#Answers to question #5 are within question #4.
