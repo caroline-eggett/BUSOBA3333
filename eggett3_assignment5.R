@@ -4,21 +4,21 @@
 # the following command. 
 
 load('Ford Data v2/RData_FordData.RData')
+library(bayesm)
 
-# test: Data.Main[[1]]$X
-# test: Data.Main[[1]]$X
+Data.Main[[1]]$X
+Data.Main[[1]]$y
 
 #2. Please read the cluster data (Cluster.csv) you have created in Assignment #2 
 # using the following R command.
 # the nclus is NOT defined
 
-clust = as.matrix(read.csv('Cluser.csv', sep=',', header=TRUE, ncol=4))
+clust = as.matrix(read.csv('Cluster.csv', sep=',', header=TRUE), ncol=4)
 
 #3. Take the “Driving Experience” as the based group, and run the provided R 
 # command to produce a part-worth matrix of each segment. 
 
-set.seed(53) 
-library(bayesm) 
+set.seed(53)
 Prior <- list(ncomp=1) 
 keep <- 10 
 Mcmc <- list(R=40000,keep=keep) 
@@ -33,7 +33,9 @@ out.Main <- rhierMnlRwMixture(Data=Data_M,Prior=Prior,Mcmc=Mcmc)
 # set burnin 
 lbound = 2000 
 ubound = 4000 
-# cluster mean - driving experince (based group) 
+nvar <- 26
+nclust <- 4
+# cluster mean - driving experience (based group) 
 DrivExp = matrix(NA, nrow = lbound, ncol = nvar) 
 for (itr in (lbound+1):ubound) { 
   DrivExp[itr-lbound, ] = (out.Main$nmix$compdraw[[itr]][[1]]$mu)   
