@@ -151,7 +151,7 @@ summary(reg2)
 # where c = 0.01. Estimate a second model that includes a window variable to restrict 
 # the variation used to be that near the cutoff.
 #   purchase = alpha + theta1*(post ∗window) + theta2*(post ∗(1 −window))+
-#              y*window + β1wait + β2generator + epsilon
+#              y*window + beta1*wait + beta2*generator + epsilon
 
 c = 0.01
 window = ifelse(abs(uber$generator-1.25)<c, 1, 0)
