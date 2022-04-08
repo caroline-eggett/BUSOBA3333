@@ -2,13 +2,20 @@
 
 
 # Refer to chapter 4 (pages 147-177) of Mastering ’Metrics to answer the following questions.
+
 # 1a In order to use a sharp regression discontinuity (RD) design, what must the
 # relationship be between the running variable a and the treatment status Da?
 
+# The treatment status will be soley determined by the function of the running
+# variable.
+
 # 1b How is a fuzzy RD design different from a sharp RD design?
 
+# Sharp there is an additional window for randomization.  The status of the treatment will
+# be determined by running variables, but treatment more intense near the cutoff point.
+
 #2 Consider the following regression model
-#   y = α + ρDa+ βa + ε
+#   y = alpha + p*Da+ beta*a + epsilon
 # where a is the running variable and Dais an indicator function of the form
 # Da=
 #   {1 if a ≥a0
@@ -24,22 +31,38 @@ a0 = 1
 Da = ifelse(a>a0,1,0)
 y = 1 + 5*Da + 4*a + error
 
-# 2a What is the true value of the treatment effect parameter (ρ) used to generate your
+# 2a What is the true value of the treatment effect parameter (p) used to generate your
 # data?
+
+# The true value is 5 for the treatment effect parameter (p).
 
 # 2b Plot y against the running variable a. How does the outcome variable change at
 # the cutoff? Include your figure below.
 
-# 2c Use the lm function in R to estimate the parameters (α,β,ρ) from your data.
+plot(a, y)
+abline(v=1)
+
+# 2c Use the lm function in R to estimate the parameters (alpha, beta, p) from your data.
 # What is the estimated treatment effect?
+
+reg = lm(y~Da + a)
+summary(reg)
+
+# The estimated treatment effect is 3.98129.  This is close to the true value of 4.
+# Same goes for what beta would be (5.10871).
 
 # 2d Load the rdd package in R and estimate the same parameters using the RDestimate
 # function command:
-#   summary(RDestimate(y ~ a , cutpoint = a0))
+
+library(rdd)
+summary(RDestimate(y ~ a , cutpoint = a0))
 
 # Include the model output below.
 
-# 2e What is the difference in the estimate of ρ in parts (c) and (d)?
+# 2e What is the difference in the estimate of p in parts (c) and (d)?
+
+# Both will cover the parameters, but in part c there is a smaller standard error than in part d.
+# Basically the difference is how accurate it predicts the true parameter.
 
 # 3 (Demand for Uber1) Understanding the demand for Uber is important not only for
 # Uber’s own purposes of setting prices or designing its mobile app, but also for policy
@@ -84,28 +107,42 @@ y = 1 + 5*Da + 4*a + error
 # After downloading the data from Carmen, set the path (e.g., "/Users/smith.6588/Downloads")
 # and load the data into R using load("path/uber.RData").
 
+load('uber.RData')
+
 # 3a If one was to simply regress purchase on price, which assumption about regression
 # models could be violated? How does a regression discontinuity approach help solve
 # this problem?
+
+# There is supposed to be a cutoff and by using regression discontinuity, we can
+# have randomization near the cutoff.  These identical two groups can help eliminated
+# the differences between the two groups. (we can do this be local markets nearly
+# identical.)
 
 # 3b Use the code below to plot purchase rates against the rounded generator values.
 # How does the purchase rate change at the rounding cutoff of 1.25? Include your
 # figure below.
 
-gen.round = round(generator,2)
+gen.round = round(uber$generator,2)
 gen.bins = sort(unique(gen.round))
-rate.table = as.data.frame.matrix(table(gen.round,purchase))
+rate.table = as.data.frame.matrix(table(gen.round,uber$purchase))
 rates = as.numeric(rate.table[,2]/apply(rate.table,1,sum))
 plot(gen.bins,rates,xlab="surge generator",ylab="purchase rate",pch=16,col=2)
 abline(v=1.25)
 
 # 3c Use the uber data to estimate the following demand model
-# purchase = α + θpost + β1wait + β2generator + ε
+# purchase = alpha + theta*post + beta1*wait + beta2*generator + epsilon
 # where generator serves as the running variable. Report the model output below.
 
-# 3d Interpret the estimate of θ.
+reg2 = lm(purchase~post + wait + generator, data=uber)
+summary(reg2)
 
-# 3e The analysis in part (c) uses all variation around the cutoff to estimate θ. Create
+# 3d Interpret the estimate of theta.
+
+# The estimate of theta is -0.0922331.  This means that there is a 9% drop as the price
+# increases.  This suggests that the average purchase rate is 9% lower of 1.5 than it is
+# at a surge of 1.
+
+# 3e The analysis in part (c) uses all variation around the cutoff to estimate theta. Create
 # a new variable called window that is defined as follows:
 
 #     window =
@@ -113,24 +150,58 @@ abline(v=1.25)
 #        0 otherwise
 # where c = 0.01. Estimate a second model that includes a window variable to restrict 
 # the variation used to be that near the cutoff.
+#   purchase = alpha + theta1*(post ∗window) + theta2*(post ∗(1 −window))+
+#              y*window + β1wait + β2generator + epsilon
 
-#   purchase = α + θ1(post ∗window) + θ2(post ∗(1 −window))+
-#              γwindow + β1wait + β2generator + ε
+c = 0.01
+window = ifelse(abs(uber$generator-1.25)<c, 1, 0)
 
 # Perform a sensitivity analysis with respect to the choice of window. Do the point
-# estimates and/or standard errors of θ1 change as window gets larger?
+# estimates and/or standard errors of theta1 change as window gets larger?
 
-# 3g Convert the estimate of θ from part (e) to a price elasticity as follows:
-#   elasticity = %∆ in demand
-#   %∆ in price = ˆθ1/purchase rate
-#   (1.5 −1)/1
-# where purchase rate is the fraction of users who requested a ride when facing a
-# surge equal to 1. Do you find the demand for Uber to be elastic or inelastic?
+cbind(window, uber$generator)[1:10,]
+cbind(window, uber$generator)[1:100,]
+cbind(window, abs(uber$generator-1.25))
+
+pw = uber$post*window
+p1w = uber$post*(1-window)
+
+reg3 = lm(uber$purchase~pw + p1w + window + uber$wait + uber$generator)
+summary(reg3)
+
+# first create a window size of 0.01 - 0.1
+grid = (1:10)/100
+
+# create storage space for theta estimates and its std error
+theta = matrix(0, nrow=10, ncol=1)
+setheta = matrix(0, nrow=10, ncol=1)
+for(i in 1:10){
+  window = ifelse(abs(uber$generator - 1.25)<grid[i],1,0)
+  pw = uber$post * window
+  p1w = uber$post*(1-window)
+  reg = lm(uber$purchase~pw + p1w + window + uber$wait + uber$generator)
+  theta[i] = reg$coefficients[2]
+  setheta[i] = sqrt(diag(vcov(reg)))[2]
+}
+
+cbind(theta, setheta)
+
+# lets visualize data
+par(mfrow = c(1,2))
+plot(grid, theta, xlab="window")
+plot(grid, setheta, xlab="window", ylab="se(theta")
+
 
 # 3h Based on your reading of the paper, discuss how the following issues would affect
 # the authors’ estimated elasticities and subsequent estimates of consumer surplus.
 
 # 3hi Ignoring local competition (e.g., taxis, Lyft, buses, trains).
+# Because the authors view the consumer demand as inelastic (page 22),
+# despite the existence of substitutes, there is a large consumer
+# surplus.
 
 # 3hii Using price variation during times of high demand to identify causal effects
 # of price on demand.
+# Again, due to the inelastic view of the authors (page 22), the consumer surplus
+# for uber rides during high demand and price variation would still have a high
+# consumer surplus (people are willing to pay a price even if it's higher).
