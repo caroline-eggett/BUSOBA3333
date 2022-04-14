@@ -84,8 +84,9 @@ attach(homedepot)
 # 2b Based on your reading of the article (see sections 1 and 2), what other factors in
 # addition to effects on brick and mortar sales should Lowes consider when deciding.
 
-# Other factors could include cyclical cycles like holiday seasons (Christmas) or 
-# inventory issues.  In order to make sure these don't affect the treatment, we need
+# Other factors could include cyclical cycles like holiday seasons (Christmas), 
+# inventory issues, or the use of technology (can people afford, what ages use, etc.)
+# .  In order to make sure these don't affect the treatment, we need
 # need to include these as other variables (the control variable).
 
 # 2c Suppose you ignored the natural experiment that occurs in the data and decided
